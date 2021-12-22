@@ -1,0 +1,150 @@
+:root {
+    --primary-color: #3F50B4;
+}
+
+*, *::before,*::after {
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+/* GLOBAL STYLING */
+label {
+    color: #7F7F7F;
+    display: block;
+    text-align: left;
+    font-size: small;
+}
+
+input , select{
+    display: block;
+    width: 100%;
+    padding: 0.3em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #D6D7D7;
+    border-radius: 0.1rem;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+/* PROGRESS BAR */
+.progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 3rem 0 5rem;
+}
+
+.progressbar::before, .progress{
+    content:"";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #9E9E9E;
+    z-index: -1;
+}
+
+.progress-50 {
+    background-color: var(--primary-color);
+    width: 50%;
+}
+
+.progress-100 {
+    background-color: var(--primary-color);
+    width: 100%;
+}
+
+.progress-step {
+    width: 3rem;
+    height: 3rem;
+    background-color: #9E9E9E;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.2rem);
+    font-size: smaller;
+    color: #202120;
+}
+
+.progress-step-active {
+    background-color: var(--primary-color);
+}
+
+/* FORM */
+.form {
+   width: 40vw;
+   height: 90vh;
+   margin: 0;
+   border: 1px solid black;
+   border-radius: 0.3rem;
+   padding: 1.2em;
+}
+
+.input-group {
+    margin: 1.2em 0;
+}
+
+.input-disabled {
+    border:none;
+    background-color: white;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.btn-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2em
+}
+
+.btn {
+   padding: 0.75em;
+   display: block;
+   text-decoration: none;
+   background-color: var(--primary-color);
+   color: whitesmoke;
+   text-align: center;
+   border-radius: 3px;
+   cursor: pointer;
+   transition: 0.3s;
+}
+
+.btn-prev {
+    background-color: whitesmoke;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px var(--primary-color);
+}
